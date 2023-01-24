@@ -29,7 +29,7 @@ const HeaderSwiper = memo((props) => {
                 modules={[Pagination, Autoplay, Navigation]}
                 className="mySwiper"
                 navigation={true}
-                autoplay={false}
+                autoplay={true}
                 loop={true}
                 
                 // 'slide' | 'fade' | 'cube' | 'coverflow' | 'flip' | 'creative' | 'cards';
