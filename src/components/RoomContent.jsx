@@ -1,11 +1,19 @@
 import React, { memo } from 'react'
 import styled from 'styled-components'
 import PersonProfire from './PersonProfire'
+import RoomItme from './RoomItme'
 
 const RoomContent = memo(() => {
   return (
     <RoomContentWappre>
-      <div className="left">2</div>
+      <div className="left">
+        <RoomItme/>
+        <RoomItme/>
+        <RoomItme/>
+        <RoomItme/>
+        <RoomItme/>
+        <RoomItme/>
+      </div>
       <div className="right">
         <div className="top">
           <PersonProfire />
@@ -43,8 +51,12 @@ justify-content: space-between;
 }
 .left {
     flex:8;
-    background-color:green;
-    height:3000px
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    
+
+    
 }
 
 `

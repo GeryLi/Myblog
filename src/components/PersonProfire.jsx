@@ -81,10 +81,11 @@ height:200px;
     }
   }
   .signature {
-    font-size:14px;
-    margin:20px;
+    font-size:16px;
+    margin:15px;
     transition:all 0.5s;
-    opacity:0.5;
+    opacity:0.7;
+    text-shadow:10px 0 10px 10px rgba(0,0,0,1);
   }
   
   

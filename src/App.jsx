@@ -1,9 +1,10 @@
 import React, { memo, Suspense } from 'react'
 import { useRoutes } from 'react-router-dom'
 import Appheader from './components/app-header';
+import Appfooter from './components/app-footer';
+import BackTop from './components/BackTop';
 import { routes } from './router'
 const App = memo(() => {
-  console.log(111);
   return (
     <div className='app'>
       <div className="header">
@@ -15,7 +16,11 @@ const App = memo(() => {
         { useRoutes(routes) }
         </Suspense>
       </div>
-      <div className="footer">footer</div>
+      <div className="footer">
+        <Appfooter/>
+      </div>
+      <BackTop/>
+
     </div>
   )
 })

@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 
 const Articles = memo(() => {
   return (
-    <div>Articles</div>
+    <div style={{height:'3000px'}}>Articles</div>
   )
 })
 

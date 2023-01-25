@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import styled from 'styled-components'
 import HeaderSwiper from '../../components/HeaderSwiper'
+import PagesPagination from '../../components/PagesPagination'
 import RoomContent from '../../components/RoomContent'
 
 const Home = memo(() => {
@@ -8,6 +9,7 @@ const Home = memo(() => {
     <HomeContentDiv className='warpper'>
       <HeaderSwiper/>
       <RoomContent/>
+      <PagesPagination/>
       
     </HomeContentDiv>
   )

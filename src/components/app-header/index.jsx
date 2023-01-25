@@ -77,7 +77,7 @@ const HeaderDiv = styled.div`
 
         div{
             flex:1;
-            font-size:14px;
+            font-size:16px;
             font-weight:700;
             transition:all 1s;
             &.active {
