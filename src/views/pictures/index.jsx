@@ -1,9 +1,12 @@
-import React, { memo } from 'react'
+import React, { memo } from "react";
+import PicturesRoom from "./c-cpns/PicturesRoom";
 
 const Pictures = memo(() => {
   return (
-    <div>pictures</div>
-  )
-})
+    <div>
+      <PicturesRoom />
+    </div>
+  );
+});
 
-export default Pictures
+export default Pictures;

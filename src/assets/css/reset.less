@@ -42,7 +42,10 @@
  }
 
  html {
-   width: 100vw;
+   // width: 100vw;
+   
+   overflow-y: overlay;
+    
     background-color: #efefef;
  }
  body {
@@ -50,6 +53,32 @@
    height: 100vh;
    background-color: #efefef;
    font-family: "LXGW WenKai Screen", sans-serif;
+   scrollbar-color: red;
 
    
+ }
+ body::-webkit-scrollbar {
+   width: 5px;
+   background: linear-gradient(
+     to bottom,
+     hsl(0deg, 100%, 50%, 0.4) 0%,
+     hsl(40deg, 100%, 50%) 20%,
+     hsl(80deg, 100%, 50%) 30%,
+     hsl(120deg, 100%, 50%) 40%,
+     hsl(180deg, 100%, 50%) 50%,
+     hsl(250deg, 100%, 50%) 80%,
+     hsl(320deg, 100%, 50%, 0.4) 100%
+   );
+   border-radius: 5px;
+ }
+
+ body::-webkit-scrollbar-thumb {
+   background: linear-gradient(
+     to bottom,
+     hsl(0deg, 100%, 50%, 0) 0%,
+     hsl(0deg, 100%, 100%, 0.9) 20%,
+     hsl(0deg, 100%, 100%, 0.9) 80%,
+     hsl(0deg, 100%, 50%, 0) 100%
+   );
+   border-radius: 100%;
  }
