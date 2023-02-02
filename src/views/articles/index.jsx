@@ -1,9 +1,75 @@
-import React, { memo } from 'react'
+import React, { memo } from "react";
+import styled from "styled-components";
+import { Input, Button } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
+import { useRef } from "react";
+import ArtContent from "./c-cpns/ArtContent";
 
 const Articles = memo(() => {
+  const inputRef = useRef();
+  const handleSearch = () => {
+    console.log(111);
+  };
   return (
-    <div style={{height:'3000px'}}>Articles</div>
-  )
-})
+    <ArticlesWapper className="warpper">
+      <div className="header">
+        <div className="content">
+          <div className="log">Gery's Blog | 搜素</div>
+          <div className="search">
+            <Input
+              placeholder="Basic usage"
+              // @ts-ignore
+              ref={inputRef}
+            />
+          </div>
+          <div className="search_btn">
+            <Button
+              type="primary"
+              icon={<SearchOutlined />}
+              size="large"
+              onClick={handleSearch}
+            >
+              搜索
+            </Button>
+          </div>
+        </div>
+      </div>
 
-export default Articles
+      <div className="main">
+        <ArtContent />
+      </div>
+    </ArticlesWapper>
+  );
+});
+const ArticlesWapper = styled.div`
+  width: 1400px;
+  .header {
+    width: 100%;
+    height: 160px;
+    /* background-color: skyblue; */
+    background-color: rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    border-radius: 10px;
+    .content {
+      width: 700px;
+      margin: auto;
+      line-height: 160px;
+      display: flex;
+      justify-content: space-around;
+
+      .search {
+        width: 400px;
+      }
+      .search_btn {
+        margin-left: -20px;
+      }
+    }
+  }
+
+  .main {
+    .act_item {
+    }
+  }
+`;
+
+export default Articles;

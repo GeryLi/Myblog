@@ -4,6 +4,7 @@ import Bilibili from "../../../components/Icons/Bilibili";
 import Email from "../../../components/Icons/Wangyiyun";
 import GitHub from "../../../components/Icons/GitHub";
 import Weibo from "../../../components/Icons/Weibo";
+import UserPhoto from "../../../assets/images/userPhoto.webp";
 
 const PersonProfire = memo(() => {
   const [randmColor, setrandmColor] = useState("#000");
@@ -20,7 +21,7 @@ const PersonProfire = memo(() => {
   return (
     <PersonProfireWapper>
       <div className="user_picture">
-        <img src={require("@/assets/images/userPhoto.webp")} alt="头像" />
+        <img src={UserPhoto} alt="头像" />
       </div>
       <div className="user_name">Gery</div>
       <div className="signature" style={{ color: `${randmColor}` }}>
@@ -28,13 +29,17 @@ const PersonProfire = memo(() => {
       </div>
       <div className="contact">
         <div className="item">
-          <GitHub />
+          <GitHub width={20} height={20} />
         </div>
         <div className="item">
-          <Bilibili />
+          <Bilibili width={20} height={20} />
         </div>
         <div className="item">
-          <Weibo width={24} height={24} />
+          <Weibo
+            // @ts-ignore
+            width={24}
+            height={24}
+          />
         </div>
         <div className="item">
           <Email />

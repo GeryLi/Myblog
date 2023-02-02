@@ -3,6 +3,7 @@ import { useRoutes } from "react-router-dom";
 import Appheader from "./components/app-header";
 import Appfooter from "./components/app-footer";
 import { routes } from "./router";
+import Loding from "./components/Loding";
 const App = memo(() => {
   return (
     <div className="app">
@@ -10,9 +11,7 @@ const App = memo(() => {
         <Appheader />
       </div>
       <div className="content">
-        <Suspense fallback={<div>loading...</div>}>
-          {useRoutes(routes)}
-        </Suspense>
+        <Suspense fallback={<Loding />}>{useRoutes(routes)}</Suspense>
       </div>
       <div className="footer">
         <Appfooter />

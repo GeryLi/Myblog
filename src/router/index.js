@@ -16,6 +16,8 @@ const Login = React.lazy(() => import('@/views/login'))
 const Notfound = React.lazy(() => import('@/views/notfound'))
 // @ts-ignore
 const Space = React.lazy(() => import('@/views/space'))
+// @ts-ignore
+const Detail = React.lazy(() => import('@/views/detail'))
 
 export const routes = [
     {
@@ -29,7 +31,8 @@ export const routes = [
     },
     {
         path: '/articles',
-        element: <Articles />
+        element: <Articles />,
+
     },
     {
         path: '/pictures',
@@ -46,6 +49,10 @@ export const routes = [
     {
         path: '/login',
         element: <Login />
+    },
+    {
+        path: '/detail/:id',
+        element: <Detail />
     },
     {
         path: '*',
