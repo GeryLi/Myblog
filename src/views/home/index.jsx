@@ -1,7 +1,6 @@
 import React, { memo, useEffect } from "react";
 import styled from "styled-components";
 import HeaderSwiper from "./c-cpns/HeaderSwiper";
-import PagesPagination from "./c-cpns//PagesPagination";
 import RoomContent from "./c-cpns/RoomContent";
 import GotoTop from "../../components/GotoTop";
 import { useDispatch } from "react-redux";
@@ -18,7 +17,6 @@ const Home = memo(() => {
     <HomeContentDiv className="warpper">
       <HeaderSwiper />
       <RoomContent />
-      <PagesPagination />
       <GotoTop />
     </HomeContentDiv>
   );

@@ -9,3 +9,11 @@ export function getImageData(skyitem = 0, limit = 12) {
         }
     })
 }
+
+export function getImageRondomData() {
+    return LfRequest.get({
+        url: '/images/allimg'
+    })
+}
+
+

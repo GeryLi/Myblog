@@ -4,9 +4,18 @@ import styled from "styled-components";
 import { getArticlesByID } from "../../services";
 import Mdeditor from "./c-cpns/Mdeditor";
 import { ClockCircleOutlined, EyeOutlined } from "@ant-design/icons";
+import MoreAtr from "../../components/MoreAtr";
+import PersonProfire from "../home/c-cpns/PersonProfire";
+import Asideanchor from "./c-cpns/Asideanchor";
 
 const Detail = memo((props) => {
   const [data, setdata] = useState({});
+  const [anchorarr, setanchorarr] = useState([]);
+  const [theme, settheme] = useState(["mk-cute"]);
+
+  const getAnchorHandle = (value) => {
+    setanchorarr(value);
+  };
   const id = useLocation().pathname.split("/")[2];
   const navigate = useNavigate();
   useEffect(() => {
@@ -26,7 +35,9 @@ const Detail = memo((props) => {
 
   return (
     <DetailWapper className="warpper">
-      <div className="left">111</div>
+      <div className="left">
+        <PersonProfire />
+      </div>
       <div className="middle">
         <div className="titles">
           <h1>{data?.title}</h1>
@@ -36,26 +47,80 @@ const Detail = memo((props) => {
               <ClockCircleOutlined className="icons" />
               <span> {data?.createtime}</span>
             </span>
+            <span className="wordage">
+              <span>字数约:{data?.content?.length}字</span>
+            </span>
             <span className="view">
               <EyeOutlined className="icons" />
               <span>{data?.views}</span>
             </span>
+            <span className="theme">
+              文章主题：
+              <select
+                name="themes"
+                id="themes"
+                defaultValue="mk-cute"
+                onChange={(value) => {
+                  settheme(value?.target?.value);
+                }}
+              >
+                <option id="default" value="default">
+                  default
+                </option>
+                <option id="github" value="github">
+                  github
+                </option>
+                <option id="vuepress" value="vuepress">
+                  vuepress
+                </option>
+                <option id="mk-cute" value="mk-cute">
+                  mk-cute
+                </option>
+                <option id="smart-blue" value="smart-blue">
+                  smart-blue
+                </option>
+                <option id="cyanosis" value="cyanosis">
+                  cyanosis
+                </option>
+                <option id="arknights" value="arknights">
+                  arknights
+                </option>
+              </select>
+            </span>
           </div>
         </div>
         <div className="content">
-          <Mdeditor content={data?.content} />
+          <Mdeditor
+            content={data?.content}
+            getAnchor={getAnchorHandle}
+            theme={theme}
+          />
         </div>
       </div>
-      <div className="right">555</div>
+      <div className="right">
+        <MoreAtr />
+        <Asideanchor anchorarr={anchorarr} />
+      </div>
     </DetailWapper>
   );
 });
 const DetailWapper = styled.div`
   width: 1600px;
   display: flex;
+  justify-content: center;
+
   .left {
-    flex: 1;
-    height: 200px;
+    box-sizing: border-box;
+    width: 276px;
+    height: 400px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 5px 20px 15px -15px rgb(0 0 0 / 40%);
+    transition: box-shadow 0.7s;
+    &:hover {
+      box-shadow: 0 0 10px 0px rgb(0 0 0 / 60%);
+    }
   }
   .middle {
     width: 800px;
@@ -63,7 +128,7 @@ const DetailWapper = styled.div`
     padding: 60px 20px;
     border-radius: 10px;
     overflow: hidden;
-    margin: 0 30px;
+    margin: 0 20px;
 
     .titles {
       text-align: center;
@@ -84,9 +149,13 @@ const DetailWapper = styled.div`
         padding: 5px;
         .view {
           margin-left: 20px;
-          color: #ff3f1f;
+          color: #fa5537;
         }
         .time {
+          color: #00a7e0;
+        }
+        .wordage {
+          margin-left: 20px;
           color: #00a7e0;
         }
 
@@ -94,17 +163,28 @@ const DetailWapper = styled.div`
           margin-left: 5px;
           margin-right: 4px;
         }
+
+        .theme {
+          float: right;
+
+          select {
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 700;
+            color: #768791;
+            border: 2px solid #aaa9a9;
+          }
+        }
       }
     }
 
     .content {
       width: 100%;
-      height: 800px;
       overflow: hidden;
     }
   }
   .right {
-    flex: 1;
+    width: 300px;
   }
 `;
 export default Detail;

@@ -49,11 +49,8 @@ const PersonProfire = memo(() => {
   );
 });
 const PersonProfireWapper = styled.div`
-  height: 200px;
-
   .user_picture {
-    padding: 40px;
-
+    padding: 50px;
     img {
       width: 100%;
       height: 100%;

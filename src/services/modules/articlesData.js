@@ -15,3 +15,9 @@ export function getArticlesByID(id) {
         url: `articles/${id}`
     })
 }
+
+export function getArticlesByRendom() {
+    return LfRequest.get({
+        url: '/articles/randomart'
+    })
+}

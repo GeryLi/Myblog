@@ -15,13 +15,11 @@ const PicturesRoom = memo(() => {
   const loadMoreData = () => {
     setlimti(3);
     setskyitem(picArr.length);
-    console.log(picArr.length);
   };
   useEffect(() => {
     getImageData(skyitem, limti).then((res) => {
       // @ts-ignore
       setpicArr([...picArr, ...res.data]);
-      console.log(res);
       if (res.data.length === 0) {
         setisLoading(false);
       }

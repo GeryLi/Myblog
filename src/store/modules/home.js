@@ -3,6 +3,7 @@ import { getArticlesData, getImageData } from '../../services'
 
 export const fetchMainData = createAsyncThunk('fetchmaindata', (payload, { dispatch }) => {
     getArticlesData().then(res => dispatch(changeArticlesData(res)))
+
     // dispatch(changeArticlesData(res))
     getImageData().then(res => dispatch(changeImagesData(res)))
 
@@ -13,7 +14,6 @@ const homeSlice = createSlice({
     initialState: {
         articlesData: {},
         imagesData: {},
-        musicData: {}
 
     },
     reducers: {

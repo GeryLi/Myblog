@@ -4,10 +4,15 @@ import "md-editor-rt/lib/style.css";
 
 const Mdeditor = memo((props) => {
   const [text, setText] = useState("");
-  const [previewTheme] = useState("mk-cute");
+  const [previewTheme, setpreviewTheme] = useState("mk-cute");
+
   useEffect(() => {
     setText(props?.content);
   }, [props.content]);
+  useEffect(() => {
+    setpreviewTheme(props?.theme);
+  }, [props.theme]);
+
   return (
     <MdEditor
       previewOnly
@@ -15,7 +20,7 @@ const Mdeditor = memo((props) => {
       onChange={setText}
       previewTheme={previewTheme}
       onGetCatalog={(list) => {
-        console.log(list);
+        props.getAnchor(list);
       }}
     />
   );

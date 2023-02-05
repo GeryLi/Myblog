@@ -4,6 +4,7 @@ import Appheader from "./components/app-header";
 import Appfooter from "./components/app-footer";
 import { routes } from "./router";
 import Loding from "./components/Loding";
+import LfAplayer from "./components/LfAplayer";
 const App = memo(() => {
   return (
     <div className="app">
@@ -15,6 +16,7 @@ const App = memo(() => {
       </div>
       <div className="footer">
         <Appfooter />
+        <LfAplayer />
       </div>
     </div>
   );

@@ -17,18 +17,9 @@ const HeaderSwiper = memo((props) => {
     (state) => ({ imagesData: state.home.imagesData }),
     shallowEqual
   );
-  console.log(imagesData);
 
   return (
     <HeaderSwiperWapper>
-      {/* <Carousel autoplay>
-                <div className='item' ></div>
-                <div className='item' ></div>
-                <div className='item' ></div>
-                <div className='item' ></div>
-              
-                
-            </Carousel> */}
       <Swiper
         pagination={{ dynamicBullets: true }}
         modules={[Pagination, Autoplay, Navigation]}
