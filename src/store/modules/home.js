@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { getArticlesData, getImageData } from '../../services'
 
 export const fetchMainData = createAsyncThunk('fetchmaindata', (payload, { dispatch }) => {
-    getArticlesData().then(res => dispatch(changeArticlesData(res)))
+    getArticlesData(0, 10).then(res => dispatch(changeArticlesData(res)))
 
     // dispatch(changeArticlesData(res))
     getImageData().then(res => dispatch(changeImagesData(res)))

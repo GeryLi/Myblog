@@ -53,7 +53,7 @@ const ArtContentWapper = styled.div`
   border-radius: 10px;
   .contbox {
     width: 100%;
-    height: 600px;
+    height: 650px;
     padding: 10px;
     border-radius: 10px;
     overflow: auto;

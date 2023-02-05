@@ -4,20 +4,20 @@ import { Image, Divider } from "antd";
 import { getImageData } from "../../../services";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-// import PictureItem from "./pictureItem";
-
 const PicturesRoom = memo(() => {
   const [picArr, setpicArr] = useState([]);
   const [isLoading, setisLoading] = useState(true);
   const [skyitem, setskyitem] = useState(0);
   const [limti, setlimti] = useState(12);
 
+  console.log(11);
   const loadMoreData = () => {
     setlimti(3);
     setskyitem(picArr.length);
   };
   useEffect(() => {
     getImageData(skyitem, limti).then((res) => {
+      console.log(res);
       // @ts-ignore
       setpicArr([...picArr, ...res.data]);
       if (res.data.length === 0) {
@@ -52,7 +52,7 @@ const PicturesRoom = memo(() => {
             >
               <Image
                 // @ts-ignore
-                src={`http://localhost:3000${item.imgUrl}`}
+                src={`http://116.205.130.4:3000${item.imgUrl}`}
                 width={"100%"}
                 height={"100%"}
               />

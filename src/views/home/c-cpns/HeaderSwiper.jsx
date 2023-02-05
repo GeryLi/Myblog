@@ -1,7 +1,6 @@
 import React, { memo } from "react";
 import styled from "styled-components";
 import swpng from "../../../assets/images/swiper_01.jpg";
-// import { Carousel } from 'antd';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Pagination, Autoplay } from "swiper";
@@ -33,7 +32,7 @@ const HeaderSwiper = memo((props) => {
         {imagesData?.data?.map((item) => (
           <SwiperSlide className="item" key={item.imgName}>
             <img
-              src={`http://localhost:3000${item.imgUrl}`}
+              src={`http://116.205.130.4:3000${item.imgUrl}`}
               alt={item.imgName}
             />
           </SwiperSlide>
