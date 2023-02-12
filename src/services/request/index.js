@@ -6,7 +6,7 @@ class LfRequest {
             baseURL,
             timeout
         })
-        this.instance.interceptors.response.use(res=> res.data,err => err )
+        this.instance.interceptors.response.use(res => res.data, err => err)
 
 
     }
@@ -19,8 +19,9 @@ class LfRequest {
     get(config) {
         return this.request({ ...config, methods: "get" })
     }
+
     post(config) {
-        return this.request({ ...config, methods: "post" })
+        return this.request({ ...config, method: "post" })
     }
 }
 export default new LfRequest(BASE_URL, TIME_OUT)

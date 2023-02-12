@@ -32,7 +32,7 @@ const HeaderSwiper = memo((props) => {
         {imagesData?.data?.map((item) => (
           <SwiperSlide className="item" key={item.imgName}>
             <img
-              src={`http://116.205.130.4:3000${item.imgUrl}`}
+              src={`http://175.24.179.193:3000${item.imgUrl}`}
               alt={item.imgName}
             />
           </SwiperSlide>

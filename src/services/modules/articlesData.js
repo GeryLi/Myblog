@@ -21,3 +21,14 @@ export function getArticlesByRendom() {
         url: '/articles/randomart'
     })
 }
+
+export function searchArticleByTitle(data) {
+
+    return LfRequest.post({
+        url: '/articles/all',
+        data: { ...data },
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+    })
+}

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { memo } from "react";
+import React, { forwardRef, memo, useImperativeHandle } from "react";
 import styled from "styled-components";
 import { Divider } from "antd";
 import { useEffect, useState } from "react";
@@ -7,45 +7,52 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { getArticlesData } from "../../../services";
 import ArtItem from "./ArtItem";
 
-const ArtContent = memo(() => {
-  const [loading, setLoading] = useState(true);
-  const [skyitem, setSkyitem] = useState(0);
-  const [data, setData] = useState([]);
-  const loadMoreData = () => {
-    setSkyitem(data.length);
-  };
-  useEffect(() => {
-    getArticlesData(skyitem, 10).then((res) => {
-      // @ts-ignore
-      setData([...data, ...res.data]);
-      if (res.data.length === 0) {
-        setLoading(false);
-      }
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [skyitem]);
+const ArtContent = memo(
+  forwardRef((props, ref) => {
+    const [loading, setLoading] = useState(true);
+    const [skyitem, setSkyitem] = useState(0);
+    const [data, setData] = useState([]);
+    const loadMoreData = () => {
+      setSkyitem(data.length);
+    };
+    useEffect(() => {
+      getArticlesData(skyitem, 10).then((res) => {
+        // @ts-ignore
+        setData([...data, ...res.data]);
+        if (res.data.length === 0) {
+          setLoading(false);
+        }
+      });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [skyitem]);
 
-  return (
-    <ArtContentWapper>
-      <div className="contbox" id="scrollableDiv">
-        <InfiniteScroll
-          InfiniteScroll
-          dataLength={data.length}
-          next={loadMoreData}
-          hasMore={loading}
-          endMessage={<Divider plain>没有更多数据了...🤐</Divider>}
-          scrollableTarget="scrollableDiv"
-          className="inside"
-          loader={<Divider plain>loding...</Divider>}
-        >
-          {data.map((item) => (
-            <ArtItem key={item.createdAt} itemData={item} />
-          ))}
-        </InfiniteScroll>
-      </div>
-    </ArtContentWapper>
-  );
-});
+    useImperativeHandle(ref, () => ({ setSearchData }));
+    const setSearchData = (value) => {
+      setData(value);
+    };
+
+    return (
+      <ArtContentWapper>
+        <div className="contbox" id="scrollableDiv">
+          <InfiniteScroll
+            InfiniteScroll
+            dataLength={data.length}
+            next={loadMoreData}
+            hasMore={loading}
+            endMessage={<Divider plain>没有更多数据了...🤐</Divider>}
+            scrollableTarget="scrollableDiv"
+            className="inside"
+            loader={<Divider plain>loding...</Divider>}
+          >
+            {data.map((item) => (
+              <ArtItem key={item.createdAt} itemData={item} />
+            ))}
+          </InfiniteScroll>
+        </div>
+      </ArtContentWapper>
+    );
+  })
+);
 const ArtContentWapper = styled.div`
   margin-top: 20px;
   width: 100%;

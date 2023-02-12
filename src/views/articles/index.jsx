@@ -4,11 +4,22 @@ import { Input, Button } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { useRef } from "react";
 import ArtContent from "./c-cpns/ArtContent";
+import { searchArticleByTitle } from "../../services";
 
 const Articles = memo(() => {
   const inputRef = useRef();
+  const childRef = useRef();
+
   const handleSearch = () => {
-    console.log(111);
+    // @ts-ignore
+    searchArticleByTitle({ title: inputRef.current.input.value })
+      .then((res) => {
+        // @ts-ignore
+        childRef.current.setSearchData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <ArticlesWapper className="warpper">
@@ -36,7 +47,7 @@ const Articles = memo(() => {
       </div>
 
       <div className="main">
-        <ArtContent />
+        <ArtContent ref={childRef} />
       </div>
     </ArticlesWapper>
   );

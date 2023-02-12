@@ -10,7 +10,7 @@ const ImageRedom = memo(() => {
   }, []);
   return (
     <img
-      src={`http://116.205.130.4:3000${state?.imgUrl}`}
+      src={`http://175.24.179.193:3000${state?.imgUrl}`}
       style={{ width: "100%", height: "100%", objectFit: "cover" }}
       alt={state?.imgName}
     />

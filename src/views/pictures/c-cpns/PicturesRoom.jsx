@@ -10,14 +10,12 @@ const PicturesRoom = memo(() => {
   const [skyitem, setskyitem] = useState(0);
   const [limti, setlimti] = useState(12);
 
-  console.log(11);
   const loadMoreData = () => {
     setlimti(3);
     setskyitem(picArr.length);
   };
   useEffect(() => {
     getImageData(skyitem, limti).then((res) => {
-      console.log(res);
       // @ts-ignore
       setpicArr([...picArr, ...res.data]);
       if (res.data.length === 0) {
@@ -52,7 +50,7 @@ const PicturesRoom = memo(() => {
             >
               <Image
                 // @ts-ignore
-                src={`http://116.205.130.4:3000${item.imgUrl}`}
+                src={`http://175.24.179.193:3000${item.imgUrl}`}
                 width={"100%"}
                 height={"100%"}
               />
