@@ -7,6 +7,7 @@ import { ClockCircleOutlined, EyeOutlined } from "@ant-design/icons";
 import MoreAtr from "../../components/MoreAtr";
 import PersonProfire from "../home/c-cpns/PersonProfire";
 import Asideanchor from "./c-cpns/Asideanchor";
+import GotoTop from "../../components/GotoTop";
 
 const Detail = memo((props) => {
   const [data, setdata] = useState({});
@@ -100,6 +101,7 @@ const Detail = memo((props) => {
       <div className="right">
         <MoreAtr />
         <Asideanchor anchorarr={anchorarr} />
+        <GotoTop />
       </div>
     </DetailWapper>
   );

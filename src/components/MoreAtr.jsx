@@ -71,7 +71,10 @@ const MoreAtrWapper = styled.div`
         font-size: 16px;
       }
       .moresubtitle {
+        width: 210px;
         font-size: 14px;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
     }
     .moretitle {
@@ -86,6 +89,9 @@ const MoreAtrWapper = styled.div`
       padding: 10px 0;
       color: #768791;
       transition: all 0.5s ease;
+      width: 100%;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
   }
 `;
