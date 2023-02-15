@@ -73,8 +73,6 @@ const MoreAtrWapper = styled.div`
       .moresubtitle {
         width: 210px;
         font-size: 14px;
-        text-overflow: ellipsis;
-        overflow: hidden;
       }
     }
     .moretitle {
@@ -83,6 +81,8 @@ const MoreAtrWapper = styled.div`
       font-weight: 500;
       color: #717171;
       transition: all 0.5s ease;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
     .moresubtitle {
       font-size: 12px;
