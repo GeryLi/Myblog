@@ -44,7 +44,10 @@ const Appheader = memo(() => {
 
   return (
     <HeaderDiv className="warpper">
-      <div style={{ textAlign: "left", fontSize: "20px", color: "#2d4c77" }}>
+      <div
+        style={{ textAlign: "left", fontSize: "20px", color: "#2d4c77" }}
+        onClick={() => navigate("/home")}
+      >
         Gery's Blog
       </div>
       {/* <div>首页</div>

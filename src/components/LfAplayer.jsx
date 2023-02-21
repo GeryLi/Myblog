@@ -91,7 +91,7 @@ const LfAplayer = memo(() => {
     new APlayer({
       container: aRef.current,
       fixed: true,
-      autoplay: true,
+      autoplay: false,
       audio: misArr,
     });
   }, []);
