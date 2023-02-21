@@ -38,6 +38,9 @@ const Appheader = memo(() => {
     setpathindex(address);
     navigate(address);
   }
+  function handserach() {
+    navigate("/articles");
+  }
 
   return (
     <HeaderDiv className="warpper">
@@ -61,7 +64,7 @@ const Appheader = memo(() => {
           <span>{item.title}</span>{" "}
         </div>
       ))}
-      <div>搜索</div>
+      <div onClick={handserach}>搜索</div>
     </HeaderDiv>
   );
 });

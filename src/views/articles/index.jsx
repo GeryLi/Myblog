@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import styled from "styled-components";
 import { Input, Button } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
@@ -9,6 +9,11 @@ import { searchArticleByTitle } from "../../services";
 const Articles = memo(() => {
   const inputRef = useRef();
   const childRef = useRef();
+
+  useEffect(() => {
+    // @ts-ignore
+    inputRef?.current?.input?.focus();
+  }, []);
 
   const handleSearch = () => {
     // @ts-ignore
