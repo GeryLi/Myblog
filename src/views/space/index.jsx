@@ -31,7 +31,7 @@ const Space = memo(() => {
             </div>
             <div>
               后端 :
-              nodejs、expressjs、express-jwt、MongoDB、mongoosejs、dayjs、Nginx
+              nodejs、expressjs、express-jwt、MongoDB、mongoosejs、dayjs、Nginx、Jeekins
             </div>
           </div>
         </div>
